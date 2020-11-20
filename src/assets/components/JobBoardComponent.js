@@ -15,6 +15,7 @@ const JobBoardComponent = ({
     languages,
     tools,
   },
+  handleTagClick,
 }) => {
     const tags  = [role, level]
 
@@ -28,10 +29,10 @@ const JobBoardComponent = ({
 
   return (
     <div 
-        className={`flex flex-col bg-white shadow-md my-16 mx-10 p-6 rounded ${featured && 'border-l-4 border-teal-500 border-solid'} sm:flex-row`}>
+        className={`flex flex-col bg-white shadow-md my-16 mx-10 p-6 rounded ${featured && 'border-l-4 border-teal-500 border-solid'} lg:flex-row lg:my-4`}>
       <div>
         <img 
-            className="-mt-16 mb-4 w-20 h-20 sm:h-24 sm:w-24 sm:my-0" 
+            className="-mt-16 mb-4 w-20 h-20 lg:h-24 lg:w-24 lg:my-0" 
             src={logo} 
             alt={company} 
         />
@@ -52,8 +53,8 @@ const JobBoardComponent = ({
         </p>
       </div>
       <div 
-        className="flex flex-wrap items-center mt-4 mx-4 pt-4 border-t border-gray-500 border-solid sm:ml-auto sm:border-0 sm:mt-0">
-        {tags ? tags.map((tag) => <span className="text-teal-500 bg-teal-100 font-bold mb-4 mr-4 p-2 rounded sm:mb-0">{tag}</span>) : ''}
+        className="flex flex-wrap items-center mt-4 mx-4 pt-4 border-t border-gray-500 border-solid lg:ml-auto lg:border-0 lg:mt-0">
+        {tags ? tags.map((tag) => <span onClick={() => handleTagClick(tag)} className="cursor-pointer text-teal-500 bg-teal-100 font-bold mb-4 mr-4 p-2 rounded lg:mb-0">{tag}</span>) : ''}
       </div>
     </div>
   );
